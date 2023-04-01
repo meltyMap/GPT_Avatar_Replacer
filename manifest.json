@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "GPT Avatar Replacer",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": ["activeTab", "storage", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["*://chat.openai.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["default_avatar.png"],
+      "matches": ["*://chat.openai.com/*"]
+    }
+  ]
+}
